@@ -1,0 +1,14 @@
+{
+  "name": "PerlLibMock",
+  "version": "0.01",
+  "abstract": "A fake Perl library for CI/CD testing",
+  "author": [ "mueslipolo <noreply@example.com>" ],
+  "license": [ "MIT" ],
+  "generated_by": "manual",
+  "resources": {
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/mueslipolo/perllibmock.git"
+    }
+  }
+}
