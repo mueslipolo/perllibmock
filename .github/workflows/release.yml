@@ -21,9 +21,9 @@ jobs:
         with:
           perl-version: '5.38'
 
-      - name: Install cpanm and dependencies
+      - name: Install dependencies
         run: |
-          cpanm --notest --installdeps .
+          cpanm --notest JSON
           cpanm --notest ExtUtils::MakeMaker
 
       - name: Build distribution
