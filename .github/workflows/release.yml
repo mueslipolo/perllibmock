@@ -1,0 +1,40 @@
+name: Build and Release Distribution
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Perl
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5.38'
+
+      - name: Install cpanm and dependencies
+        run: |
+          cpanm --notest --installdeps .
+          cpanm --notest ExtUtils::MakeMaker
+
+      - name: Build distribution
+        run: |
+          perl Makefile.PL
+          make dist
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: '*.tar.gz'
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
