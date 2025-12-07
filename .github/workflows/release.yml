@@ -29,6 +29,7 @@ jobs:
       - name: Build distribution
         run: |
           perl Makefile.PL
+          make manifest
           make dist
 
       - name: Upload to GitHub Release
