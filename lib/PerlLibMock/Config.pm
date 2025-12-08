@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use JSON;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =encoding UTF-8
 
@@ -24,7 +24,7 @@ sub get_config {
     # Simple static config for testing
     return {
         name    => 'PerlLibMock',
-        version => '0.01',
+        version => '0.02',
         enabled => JSON::true,
         items   => [ 'apple', 'banana', 'cherry' ],
     };

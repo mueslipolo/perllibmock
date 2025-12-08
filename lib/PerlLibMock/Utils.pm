@@ -3,7 +3,7 @@ package PerlLibMock::Utils;
 use strict;
 use warnings;
 use Exporter 'import';
-our @EXPORT_OK = qw(greet add_numbers);
+our @EXPORT_OK = qw(greet add_numbers multiply_numbers);
 
 =encoding UTF-8
 
@@ -21,6 +21,10 @@ Return a greeting string.
 
 Return sum of two numbers.
 
+=head2 multiply_numbers($a, $b)
+
+Return product of two numbers.
+
 =cut
 
 sub greet {
@@ -34,6 +38,13 @@ sub add_numbers {
     $a ||= 0;
     $b ||= 0;
     return $a + $b;
+}
+
+sub multiply_numbers {
+    my ($a, $b) = @_;
+    $a ||= 0;
+    $b ||= 0;
+    return $a * $b;
 }
 
 1;
