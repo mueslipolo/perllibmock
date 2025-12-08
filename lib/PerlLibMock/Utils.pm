@@ -3,7 +3,7 @@ package PerlLibMock::Utils;
 use strict;
 use warnings;
 use Exporter 'import';
-our @EXPORT_OK = qw(greet add_numbers multiply_numbers);
+our @EXPORT_OK = qw(greet add_numbers multiply_numbers reverse_string);
 
 =encoding UTF-8
 
@@ -25,6 +25,10 @@ Return sum of two numbers.
 
 Return product of two numbers.
 
+=head2 reverse_string($str)
+
+Return the reversed string.
+
 =cut
 
 sub greet {
@@ -45,6 +49,12 @@ sub multiply_numbers {
     $a ||= 0;
     $b ||= 0;
     return $a * $b;
+}
+
+sub reverse_string {
+    my ($str) = @_;
+    $str //= '';
+    return scalar reverse $str;
 }
 
 1;
